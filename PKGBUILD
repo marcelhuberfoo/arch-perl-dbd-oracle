@@ -15,7 +15,7 @@ makedepends=('oracle-instantclient-sdk>=10.1' 'oracle-instantclient-sqlplus' 'pe
 options=('!emptydirs')
 source=(oracle.mk
 	"http://cpan.org/modules/by-module/${_modnamespace}/${_perlmod}-${pkgver}.tar.gz")
-sha512sums=('03a67ecf7d4f47e118fbf54db6698b36024c8e07c5598cb61442e3666ae09e6c442f9a65dd2eb8ad78572d1cb2c08a224b3d273a5d4cfb22eac7c61b7a020b1a'
+sha512sums=('05392bc442845b4e4b5d24891cd8a970039db2e0b0c11a994f33b4cdd72567f5cd86c9a8b7ed7d6cc48774bace0544d9af0223f1bb52daf321286638f02e1241'
             '08e2b39a9102bc7aaa947d8104b99fce40285781f8482f08b4571fa866198f6f36f089771808a6c53eede3eb3b573da6ec7ba6de16d1d5023ceae6be60d3f8f2')
 
 build() {
