@@ -11,7 +11,9 @@ arch=('any')
 url="http://search.cpan.org/dist/${_perlmod}"
 license=('GPL' 'PerlArtistic')
 depends=('oracle-instantclient-basic>=10.1' 'perl-dbi>=1.51')
-makedepends=('oracle-instantclient-sdk>=10.1' 'oracle-instantclient-sqlplus' 'perl-data-dumper')
+makedepends=('oracle-instantclient-sdk>=10.1'
+	'oracle-instantclient-sqlplus'		# used to detect version from within Makefile.PL
+	'perl-data-dumper')
 options=('!emptydirs')
 source=(oracle.mk
 	"http://cpan.org/modules/by-module/${_modnamespace}/${_perlmod}-${pkgver}.tar.gz")
@@ -20,8 +22,8 @@ sha512sums=('05392bc442845b4e4b5d24891cd8a970039db2e0b0c11a994f33b4cdd72567f5cd8
 
 build() {
 	cd "${_perlmod}-${pkgver}"
-
-	# prefer libs from instantclient installation
+	# prefer libs from instantclient installation as it might be newer
+	unset ORACLE_HOME
 	export LD_LIBRARY_PATH=/usr/lib
 	# prefer use of instantclient sqlplus binary
 	export PATH=/usr/bin:$PATH
